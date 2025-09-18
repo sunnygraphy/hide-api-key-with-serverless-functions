@@ -4,7 +4,7 @@
 
 # 리다이렉트 규칙을 정의합니다. (기존 설정 유지)
 [[redirects]]
-  from = "/*"
+  from = "/gemini/*"
   to = "/.netlify/functions/gemini/:splat"
   status = 200
   force = true

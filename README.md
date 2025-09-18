@@ -1,10 +1,10 @@
 # hide-api-key-with-serverless-functions
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3c98c36b-95c2-4c8d-a3d9-ab5f9342c128/deploy-status)](https://app.netlify.com/sites/bigsaigon333/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_ID/deploy-status)](https://app.netlify.com/sites/geminiapikey/deploys)
 
-### 이 레포지토리는 Client-Side 에서 API Key를 노출하지 않고 Youtube API와 통신하기 위한 redirect server 입니다.
+### 이 레포지토리는 Client-Side 에서 API Key를 노출하지 않고 Gemini API와 통신하기 위한 프록시 서버입니다.
 
-serveless functions 중 Netlify Functions를 활용하였습니다. 따라서 netlify 계정이 반드시 필요합니다. (netlify sign up은 무료입니다)
+Netlify Functions를 활용하였으므로 Netlify 계정이 필요합니다. (무료 가입 가능)
 
 <br>
 
@@ -22,7 +22,7 @@ serveless functions 중 Netlify Functions를 활용하였습니다. 따라서 ne
 
    아래의 환경변수는 반드시 설정해야 합니다. 또한 환경변수를 설정한 후에는 반드시 deploy를 하여야 합니다. 새로이 deploy한 후에 변경된 환경변수가 적용됩니다.
 
-   - API_KEY: Youtube API Key
+   - GEMINI_API_KEY: Google AI Studio에서 발급받은 Gemini API Key
 
    - HOST: CORS 를 위한 Origin으로, Response 헤더의 Access-Control-Allow-Origin: HOST 로 설정됩니다.
 
@@ -37,9 +37,9 @@ serveless functions 중 Netlify Functions를 활용하였습니다. 따라서 ne
 
 <br>
 
-### 2. Client-Side 사용법
+### 2. 클라이언트(Firebase 웹 앱) 사용법
 
-기존에는 Youtube API Endpoint 인 `https://www.googleapis.com/youtube/v3/search` 으로 직접 통신하였다면 이제부터는 방금 만든 Netlify Functions의 Endpoint와 통신하시면 됩니다.
+기존 Gemini API Endpoint 대신, 새로 만든 Netlify Functions의 Endpoint와 통신하면 됩니다.
 
 ```
 // 기존

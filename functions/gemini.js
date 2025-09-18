@@ -47,7 +47,15 @@ exports.handler = async (event, context) => {
             body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
         });
 
-        if (!geminiResponse.ok) throw new Error(`Gemini API error: ${geminiResponse.statusText}`);
+        if (!geminiResponse.ok) {
+            // Gemini API로부터 받은 에러 상태 코드를 그대로 클라이언트에 전달합니다.
+            // 이렇게 하면 'Too Many Requests' (429) 같은 특정 에러를 클라이언트에서 인지할 수 있습니다.
+            return {
+                statusCode: geminiResponse.status,
+                headers,
+                body: JSON.stringify({ error: `Gemini API error: ${geminiResponse.statusText}` })
+            };
+        }
 
         const data = await geminiResponse.json();
         const text = data.candidates[0].content.parts[0].text;

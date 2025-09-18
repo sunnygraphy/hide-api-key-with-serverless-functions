@@ -4,7 +4,7 @@ exports.handler = async (event, context) => {
     // 허용할 출처(Origin) 목록
     // 실제 Firebase 앱 주소와 로컬 개발 주소를 포함합니다.
     const allowedOrigins = [
-        'https://your-firebase-app-name.web.app', // 실제 Firebase 호스팅 주소로 꼭 변경해주세요.
+        'https://toslide.com', // 실제 Firebase 호스팅 주소로 꼭 변경해주세요.
         'http://localhost:7744',
         'http://127.0.0.1:7744'
     ];

@@ -4,10 +4,10 @@
 
 # 리다이렉트 규칙을 정의합니다. (기존 설정 유지)
 [[redirects]]
-  from = "/gemini/*"
+  from = "/*"
   to = "/.netlify/functions/gemini/:splat"
   status = 200
-
+  force = true
 # CORS 문제를 해결하기 위한 헤더 규칙을 추가합니다.
 [[headers]]
   # 이 규칙은 모든 Netlify 함수 경로에 적용됩니다.
